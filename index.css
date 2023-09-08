@@ -1,0 +1,59 @@
+/* Open Sans font */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+:root {
+  --hijau: #42b883;
+  --hijau-muda: #4edf9e;
+  --abu-abu: #cacaca;
+}
+
+* {
+  font-family: "Open Sans", sans-serif;
+}
+
+.pesan-kegiatan-kosong {
+  text-align: center;
+  color: var(--abu-abu);
+}
+
+.pesan-kegiatan-banyak {
+  font-size: 1.3em;
+  text-align: right;
+  color: var(--hijau);
+}
+
+.daftar-kegiatan {
+  font-size: 1.5em;
+}
+
+.formulir-tambahkan-kegiatan {
+  font-size: 1.2em;
+  display: flex;
+  justify-content: end;
+}
+
+.formulir-tambahkan-kegiatan__input {
+  font-size: inherit;
+  outline: none;
+  border-style: solid;
+  transition: all 0.3s;
+}
+
+.formulir-tambahkan-kegiatan__input:focus {
+  border-color: var(--hijau);
+  transition: all 0.3s;
+}
+
+.formulir-tambahkan-kegiatan__tombol {
+  font-size: inherit;
+  background-color: var(--hijau);
+  border-color: var(--hijau);
+  border-style: solid;
+  transition: all 0.3s;
+}
+
+.formulir-tambahkan-kegiatan__tombol:hover {
+  cursor: pointer;
+  background-color: var(--hijau-muda);
+  transition: all 0.3s;
+}

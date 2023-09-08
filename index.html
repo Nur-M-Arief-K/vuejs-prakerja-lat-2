@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VueJs TDL</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div id="app">
+    <h1 class="judul">Daftar Kegiatan</h1>
+    <p v-if="daftarKegiatan.length == 0" class="pesan-kegiatan-kosong"><i>Belum ada kegiatan yang ditambahkan, silahkan tambahkan melalui kolom di bawah ini</i></p>
+    <ol class="daftar-kegiatan">
+      <li v-for="kegiatan in daftarKegiatan" class="daftar-kegiatan__item">{{ kegiatan }}</li>
+    </ol>
+    <form @submit.prevent="tambahkanKegiatan" class="formulir-tambahkan-kegiatan">
+      <input v-model="kegiatan" placeholder="Nama kegiatan" class="formulir-tambahkan-kegiatan__input" />
+      <button type="submit" class="formulir-tambahkan-kegiatan__tombol">Tambahkan</button>
+    </form>
+    <p v-if="daftarKegiatan.length >= 4" class="pesan-kegiatan-banyak">Hebat!</p>
+  </div>
+
+  <!-- Script -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp } = Vue
+
+    createApp({
+      data() {
+        return {
+          kegiatan: "",
+          daftarKegiatan: []
+        }
+      },
+      methods: {
+        tambahkanKegiatan() {
+          this.kegiatan.length > 0 && 
+            this.daftarKegiatan.push(this.kegiatan);
+            this.kegiatan = "";
+        }
+      },
+    }).mount('#app')
+  </script>
+</body>
+</html>
